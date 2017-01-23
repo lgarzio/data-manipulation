@@ -7,7 +7,7 @@ import os
 This script combines all ingest csvs cloned in a local repo from https://github.com/ooi-integration/ingestion-csvs
 '''
 
-rootdir = '/Users/lgarzio/Documents/repo/ooi-integration/ingestion-csvs'
+rootdir = '/Users/lgarzio/path_to_local_repo'
 
 df = pd.DataFrame()
 for root, dirs, files in os.walk(rootdir):
@@ -28,4 +28,4 @@ for root, dirs, files in os.walk(rootdir):
                 #df = df.rename(columns={'Unnamed: 4':'ingest_csv_notes'})
 
 header = ['reference_designator','driver','uframe_route','data_source','filename_mask','ingest_csv_filename']
-df.to_csv('/Users/lgarzio/Documents/OOI/ingestion_csvs_concat.csv',index = False, columns = header, na_rep = 'NaN')
+df.to_csv('/Users/lgarzio/output_file.csv',index = False, columns = header, na_rep = 'NaN')

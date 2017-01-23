@@ -10,8 +10,8 @@ import pandas as pd
 import os
 
 '''
-This script combines the first sheet (called 'Moorings') of OOI cal sheets cloned in a local repo from
-https://github.com/ooi-integration/asset-management/deployment
+This script combines the first sheet (called 'Moorings') of archived OOI cal sheets cloned in a local repo from
+https://github.com/ooi-integration/asset-management/tree/master/ARCHIVE/deployment
 
 '''
 
@@ -31,5 +31,4 @@ for root, dirs, files in os.walk(rootdir):
 mooring_header = ['Mooring OOIBARCODE','Ref Des','Serial Number','Deployment Number','Anchor Launch Date',
                   'Anchor Launch Time','Recover Date','Latitude','Longitude','Water Depth',
                   'Cruise Number','Notes','Lat','Lon','filename']
-df.to_csv('/Users/lgarzio/output_file.csv',
-                       index = False, columns = mooring_header, na_rep = 'NaN',encoding='utf-8')
+df.to_csv('/Users/lgarzio/output_file.csv',index = False, columns = mooring_header, na_rep = 'NaN',encoding='utf-8')
