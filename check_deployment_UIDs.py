@@ -15,6 +15,7 @@ and lists where the Reference Designator doesn't match the sensor.uid
 '''
 
 rootdir = '/Users/lgarzio/path_to_local_repo'
+sensor_bulk_load = '/Users/lgarzio/path_to_local_repo/asset-management/bulk/sensor_bulk_load-AssetRecord.csv'
 
 df = pd.DataFrame()
 for root, dirs, files in os.walk(rootdir):
@@ -34,6 +35,13 @@ for root, dirs, files in os.walk(rootdir):
                 df = df.append(filereader)
                 df['refdes_equals_uid'] = df['refdes_inst'] == df['sensor.uid_inst']
 
+                # merge with sensor_bulk_load
+                sbl = pd.read_csv(sensor_bulk_load)
+                sbl2 = sbl.rename(columns = {'ASSET_UID':'sensor.uid'})
+                df_bulk = pd.merge(df, sbl2, on='sensor.uid', how='left')
+                df_bulk2 = df_bulk.rename(columns = {'DESCRIPTION OF EQUIPMENT':'DESCRIPTION OF EQUIPMENT (sensor_bulk_load)'})
+
+
 header = ['filename','CUID_Deploy','Reference Designator','deploymentNumber','startDateTime','stopDateTime','mooring.uid','node.uid',
-          'sensor.uid','lat','lon','deployment_depth','water_depth','notes','refdes_inst','sensor.uid_inst','refdes_equals_uid']
-df.to_csv('/Users/lgarzio/output_file.csv', index = False, columns = header)
+          'sensor.uid','lat','lon','deployment_depth','water_depth','notes','refdes_inst','sensor.uid_inst','refdes_equals_uid','DESCRIPTION OF EQUIPMENT (sensor_bulk_load)']
+df_bulk2.to_csv('/Users/lgarzio/output_file.csv', index = False, columns = header)
