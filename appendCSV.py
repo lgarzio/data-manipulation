@@ -17,15 +17,15 @@ for root, dirs, files in os.walk(rootdir):
                 filereader = pd.read_csv(csv_file)
 
                 # add the file name as a column
-                filereader['ingest_csv_filename'] = str(f)
+                filereader['filename'] = str(f)
 
-                # split uframe_route to get driver name and add as a column
-                dr = filereader['uframe_route'].str.split('.').str[1]
-                dr = dr.str.replace('-', '_')
-                filereader['driver'] = dr
+                # # split uframe_route to get driver name and add as a column
+                # dr = filereader['uframe_route'].str.split('.').str[1]
+                # dr = dr.str.replace('-', '_')
+                # filereader['driver'] = dr
 
                 df = df.append(filereader)
                 #df = df.rename(columns={'Unnamed: 4':'ingest_csv_notes'})
 
-header = ['reference_designator','driver','uframe_route','data_source','filename_mask','ingest_csv_filename']
+header = ['filename','reference_designator','parser','data_source','filename_mask','status','notes']
 df.to_csv('/Users/lgarzio/output_file.csv',index = False, columns = header, na_rep = 'NaN')
