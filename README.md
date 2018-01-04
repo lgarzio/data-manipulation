@@ -9,6 +9,8 @@ These python scripts were developed for the Ocean Observatories Initiative (OOI)
 
 - [check_deployment_UIDs.py](https://github.com/lgarzio/data-manipulation-ooi/blob/master/check_deployment_UIDs.py): Tests for a match between the instrument in the Reference Designator and the sensor.uid.
 
+- [check_system_refdes_stream.py](https://github.com/lgarzio/data-manipulation-ooi/blob/master/check_system_refdes_stream.py): Compares the reference designators and streams in the QC database to uFrame and the GUI data catalog list.
+
 - [check_system_refdes.py](https://github.com/lgarzio/data-manipulation-ooi/blob/master/check_system_refdes.py): Compares the master list of reference designators in the vocab.csv to the reference designators ingested in uFrame.
 
 - [compare_qcdb_vocab.py](https://github.com/lgarzio/data-manipulation-ooi/blob/master/compare_qcdb_vocab.py): Compares the master list of reference designators in the asset management vocab.csv to the reference designators in the data team's QC database.
