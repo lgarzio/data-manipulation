@@ -14,3 +14,5 @@ These python scripts were developed for the Ocean Observatories Initiative (OOI)
 - [check_system_refdes.py](https://github.com/lgarzio/data-manipulation-ooi/blob/master/check_system_refdes.py): Compares the master list of reference designators in the vocab.csv to the reference designators ingested in uFrame.
 
 - [compare_qcdb_vocab.py](https://github.com/lgarzio/data-manipulation-ooi/blob/master/compare_qcdb_vocab.py): Compares the master list of reference designators in the asset management vocab.csv to the reference designators in the data team's QC database.
+
+- [ingest_csvs_extract_instrument.py](https://github.com/lgarzio/data-manipulation-ooi/blob/master/ingest_csvs_extract_instrument.py): Creates new ingest csvs for a specific instrument in a platform directory from https://github.com/ooi-integration/ingestion-csvs. Useful when needing to purge and re-ingest all deployments of a specific instrument for a platform.
